@@ -16,7 +16,7 @@
               .type('BatchApexError')
               .title('Batch Error')
               .body('Some useful information')
-              .sendToCurrentUser();
+              .sendToCurrentUser(UserInfo.getUserId());
           // Then
           // ... see asserts in RunnerMock
       }

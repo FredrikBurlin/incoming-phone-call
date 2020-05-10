@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Key__c</fullName>
     <externalId>false</externalId>
-    <inlineHelpText>Add a random key that is used to identify the service that is doing the call</inlineHelpText>
+    <inlineHelpText>Add a random key that is used to identify the service that is doing the call. Use only letters and digits</inlineHelpText>
     <label>Key</label>
     <length>255</length>
     <required>true</required>

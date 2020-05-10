@@ -19,19 +19,6 @@ global class IncomingPhoneCall {
             From__c = fromPhoneNumber
         );
 
-        Database.SaveResult sr = EventBus.publish(incomingPhoneCallEvent);
-String v='';
-        if (sr.isSuccess()) {
-                    v += 'Successfully published event. ';
-                } else {
-                    for(Database.Error err : sr.getErrors()) {
-                        v += 'Error returned: ' +
-                                    err.getStatusCode() +
-                                    ' - ' +
-                                    err.getMessage();
-                    }
-                }
-
-        return v + String.valueOf(incomingPhoneCallEvent);//toPhoneNumber+fromPhoneNumber+'200 - OK';
+        return '200 - OK';
     }
 }
