@@ -1,6 +1,6 @@
 @RestResource(urlMapping='/incomingPhoneCall')
 global class IncomingPhoneCall {
-@HttpGet
+    @HttpGet
     global static String incomingPhoneCall(){
         RestContext.response.addHeader('Content-Type', 'text/plain');
         String toPhoneNumber = RestContext.request.params.get('to');
@@ -18,6 +18,7 @@ global class IncomingPhoneCall {
             To__c = toPhoneNumber,
             From__c = fromPhoneNumber
         );
+        Database.SaveResult sr = EventBus.publish(incomingPhoneCallEvent);
 
         return '200 - OK';
     }
