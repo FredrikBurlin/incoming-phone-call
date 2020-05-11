@@ -1,11 +1,21 @@
 {
-  "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": true
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "IncomingPhoneCall",
+            "versionName": "Version 1.1",
+            "versionNumber": "1.1.0.NEXT"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "48.0",
+    "packageAliases": {
+        "IncomingPhoneCall": "0Hof4000000XZL5CAO",
+        "IncomingPhoneCall@0.1.0-1": "04tf4000004PtnNAAS",
+        "IncomingPhoneCall@1.0.0-1": "04tf4000004PtnSAAS",
+        "IncomingPhoneCall@1.0.0-2": "04tf4000004PtnXAAS",
+        "IncomingPhoneCall@1.1.0-1": "04tf4000004PtncAAC"
     }
-  ],
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "48.0"
 }
