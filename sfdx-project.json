@@ -4,8 +4,8 @@
             "path": "force-app",
             "default": true,
             "package": "IncomingPhoneCall",
-            "versionName": "Version 1.1",
-            "versionNumber": "1.1.0.NEXT"
+            "versionName": "Version 1.3",
+            "versionNumber": "1.3.0.NEXT"
         }
     ],
     "namespace": "",
@@ -16,6 +16,8 @@
         "IncomingPhoneCall@0.1.0-1": "04tf4000004PtnNAAS",
         "IncomingPhoneCall@1.0.0-1": "04tf4000004PtnSAAS",
         "IncomingPhoneCall@1.0.0-2": "04tf4000004PtnXAAS",
-        "IncomingPhoneCall@1.1.0-1": "04tf4000004PtncAAC"
+        "IncomingPhoneCall@1.1.0-1": "04tf4000004PtncAAC",
+        "IncomingPhoneCall@1.2.0-1": "04tf4000004PtnhAAC",
+        "IncomingPhoneCall@1.3.0-1": "04tf4000004PtnmAAC"
     }
 }
