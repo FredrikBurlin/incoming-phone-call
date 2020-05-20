@@ -1,5 +1,10 @@
 {
-  "orgName": "fredrikburlin company",
-  "edition": "Developer",
-  "features": []
+    "orgName": "fredrikburlin company",
+    "edition": "Developer",
+    "features": [
+        "MultiCurrency",
+        "ProcessBuilder",
+        "RecordTypes",
+        "Sites"
+    ]
 }

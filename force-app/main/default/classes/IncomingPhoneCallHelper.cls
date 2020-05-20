@@ -1,4 +1,13 @@
 public without sharing class IncomingPhoneCallHelper {
+    private static final String NOTIFICATION_PREFIX = '📞 ';
+    private static final String TASK_SUBJECT_PREFIX = 'Received Call ';
+    private static final String TASK_STATUS = 'Completed';
+    private static final String TASK_PRIORITY = 'Normal';
+    private static final String TASK_TYPE = 'Call';
+    private static final String NEW_LEAD_CURRENCY = 'AUD';
+    private static final String NEW_LEAD_COMPANY = 'Unknown';
+    private static final String NEW_LEAD_LASTNAME = 'Unknown';
+
     private static Id ownerId;
     private static String fromPhoneNumber;
 
@@ -41,7 +50,7 @@ public without sharing class IncomingPhoneCallHelper {
         for (Contact cont : contacts) {
             sendNotification(
                 String.isBlank(cont.FirstName) ? cont.LastName : cont.FirstName + ' ' + cont.LastName,
-                cont.Account.Name + ' (Contact)',
+                cont.Account.Name,
                 cont.Id,
                 ownerId);
             addTask(
@@ -61,7 +70,7 @@ public without sharing class IncomingPhoneCallHelper {
         for (Lead led : leads) {
             sendNotification(
                 String.isBlank(led.FirstName) ? led.LastName : led.FirstName + ' ' + led.LastName,
-                led.Company + ' (Lead)',
+                led.Company,
                 led.Id,
                 led.OwnerId);
             addTask(
@@ -75,15 +84,16 @@ public without sharing class IncomingPhoneCallHelper {
     private static void createLead() {
         Lead led = new Lead(
             FirstName = '',
-            LastName = 'Unknown',
-            Company = 'Unknown',
+            LastName = NEW_LEAD_LASTNAME,
+            Company = NEW_LEAD_COMPANY,
+            CurrencyIsoCode = NEW_LEAD_CURRENCY,
             MobilePhone = fromPhoneNumber,
             OwnerId = ownerId);
         insert led;
 
         sendNotification(
             led.LastName,
-            led.Company + ' (Lead)',
+            led.Company,
             led.Id,
             led.OwnerId);
         addTask(
@@ -95,7 +105,7 @@ public without sharing class IncomingPhoneCallHelper {
     private static void sendNotification(String fullName, String body, Id targetId, Id ownerId) {
         new CustomNotification()
             .type('Incoming_Phone_Call')
-            .title('📞' + fullName)
+            .title(NOTIFICATION_PREFIX + fullName)
             .body(body)
             .targetId(targetId)
             .sendToCurrentUser(ownerId);
@@ -103,9 +113,10 @@ public without sharing class IncomingPhoneCallHelper {
 
     private static void addTask(Id whoId, Id whatId) {
        insert new Task(
-            Subject = 'Received Call ' + fromPhoneNumber,
-            Status = 'Completed',
-            Priority = 'Normal',
+            Subject = TASK_SUBJECT_PREFIX + fromPhoneNumber,
+            Status = TASK_STATUS,
+            Priority = TASK_PRIORITY,
+            Type = TASK_TYPE,
             OwnerId = ownerId,
             WhoId = whoId,
             WhatId = whatId,
